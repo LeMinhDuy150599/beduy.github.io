@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/Content/dinhdang.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    
+    <style>
+        .inner {
+            overflow: hidden;
+        }
+            .inner img {
+                transition: all 1.5s ease;
+            }
+            .inner:hover img {
+                transform: scale(1.5);
+            }
+    </style>
+    
+</head>
+<body>
+     @Html.Action("MenuNgang","Home")
+       
+   <div id="carouselExampleIndicators" class="carousel slide mt-1" data-ride="carousel">
+       <ol class="carousel-indicators">
+           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+       </ol>
+       <div class="carousel-inner">
+           <div class="carousel-item active">
+               <img class="d-block w-100" src="~/Content/imgWEB/nen16.jpg"  alt="First slide" />
+               <div class="carousel-caption">
+                   <h2 style="font-family:Cambria">Về chúng tôi</h2>
+                    <h4 style="text-align:center;font-family:Cambria">
+                       Trải qua những thăng trầm về thời gian cùng kinh nghiệm 60 năm. Qua một thời gian dài song hành cùng khách hàng, THEDoHo đã, đang và sẽ tiếp tục phát triển trên con đường mang vẻ đẹp của những chiếc đồng hồ cao cấp chính hãng của những thương hiệu nổi tiếng trên thế giới đến với người yêu thích đồng hồ tại Việt Nam.
+                     </h4>
+                </div>
+           </div>
+           <div class="carousel-item">
+               <img class="d-block w-100" src="~/Content/imgWEB/nen15.jpg"  alt="Second slide" />
+           </div>
+           <div class="carousel-item">
+               <img class="d-block w-100" src="~/Content/imgWEB/nen22.jpg"  alt="Third slide" />
+                <div class="carousel-caption">
+                    <h4 style="font-family:Cambria">
+                       Trang sức chẳng bao giờ thực sự hút mắt tôi, nhưng đồng hồ thì luôn luôn làm tôi chú ý. "Jewellery isn't really my thing, but I've always got my eye on people's watches"
+                     </h4>
+                </div>
+           </div>
+           <div class="carousel-item">
+               <img class="d-block w-100" src="~/Content/imgWEB/nen21.jpg"  alt="Fourth slide">
+                
+           </div>
+           <div class="carousel-item">
+               <img class="d-block w-100" src="~/Content/imgWEB/nen23.jpg"  alt="Fifth slide">
+               
+           </div>
+       </div>
+       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+       </a>
+       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+       </a>
+
+   </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav flex-column">
+                <li class="nav-item rounded-top"><a href="@Url.Action("Index","Home")"><img style="width:300px;height:300px" src="~/Content/imgWEB/DOHO.png" /></a></li>
+                @Html.Action("Menu1","Home")
+                
+            </ul>
+        </div>
+        <div class="col-md-9" style="background-color:palegoldenrod">
+             @RenderBody()
+        </div>
+
+    </div>
+    <div class="dropdown-divider"></div>
+    <div  style="text-align:center; background-color:#c08824 ">
+        <br />
+        <br />
+        <h2 class="title" style="color:black;font-family:Bookman Old Style" ><b>Liên lạc với chúng tôi</b></h2>
+        <br />
+        <p style="color:black;font-family:Bookman Old Style"> Đăng ký nhận thông tin từ THEDoHo để nhận những tin tức mới nhất qua email.</p>
+        @using (Html.BeginForm("TinTuc", "Home", FormMethod.Post, new { @enctype = "mutipart/form-data" }))
+        { 
+        <div class="form-row d-flex justify-content-center">
+         <div class="form-group col-md-2">
+                 <input type="text" placeholder="Họ và tên" class="form-control mb-2 mr-sm-2" name="txtFirstName">
+         </div>
+         <div class="form-group col-md-2">
+                 <input class="form-control mb-2 mr-sm-2" type="email" name="txtEMAIL" placeholder="Email của bạn" >
+         </div>
+         <div class="form-group col-md-2">
+                 <input class="form-control mb-2 mr-sm-2 btn btn-outline-light " type="submit"  value="Đăng Ký"> 
+         </div>                  
+        </div>   
+        }
+        <form class="form-inline justify-content-center">
+             <span class="fa-stack fa-lg">
+             <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+             <i class="fa fa-twitter fa-stack-1x" style="color:black"></i>
+             </span>
+                
+             <span class="fa-stack fa-lg">
+             <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+             <i class="fa fa-facebook fa-stack-1x" style="color:black"></i>
+              </span>
+                
+              <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+              <i class="fa fa-youtube fa-stack-1x"style="color:black" ></i>
+              </span>
+               
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+              <i class="fa fa-pinterest fa-stack-1x" style="color:black"></i>
+            </span>
+                
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+              <i class="fa fa-linkedin fa-stack-1x" style="color:black"></i>
+            </span>
+
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x" style="color:black"></i>
+              <i class="fa fa-google-plus fa-stack-1x" style="color:black"></i>
+            </span>
+        </form>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div>
+        <table class="table table-dark">
+            <thead>
+                 <tr>
+                    <th scope="col">
+                        <a style="font-family:Bookman Old Style">THE DoHo <br />
+                        92 Đường Sương Nguyệt Ánh, Phường Phạm Ngũ Lão<br /> Quận 1, TP. Hồ Chí Minh<br />
+                        Tel: (028) 7302 7777 - Hotline: 0933 888 515</a>
+                    </th>
+                    <th scope="col">
+                        <a style="font-family:Bookman Old Style">Chi nhánh 2 <br />
+                        222 Đường Trần Hưng Đạo, Phường Nguyễn Cư Trinh<br /> Quận 1, TP. Hồ Chí Minh<br />
+                         Tel: (028) 7308 6079 - Hotline: 0909 633 133</a>
+
+                    </th>
+                </tr>
+                </thead>
+        </table>
+      </div>
+   
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+   
+</html>

@@ -1,0 +1,34 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.NHOM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+<h2 style="text-align:center">CHỈNH SỬA NHÓM</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.MaNhom)
+
+        <table class="table">
+            <tr>
+                <td>TÊN NHÓM:</td>
+                <td>@Html.TextBox("tennhom") @ViewData["Loi"]</td>
+            </tr>
+        </table>
+        
+        <p>
+            <input class="btn btn-warning" type="submit" value="Save" /> |
+            @Html.ActionLink("TRỞ VỀ", "QuanLyNhom",null,  new { @class = "btn btn-dark" })
+        </p>
+    </fieldset>
+}
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

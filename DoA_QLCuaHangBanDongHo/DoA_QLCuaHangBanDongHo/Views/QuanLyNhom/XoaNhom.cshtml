@@ -1,0 +1,31 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.NHOM
+
+@{
+    ViewBag.Title = "XoaNhom";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+
+<h2 style="text-align:center">XÁC NHẬN THÔNG TIN CẦN XÓA?</h2>
+<fieldset>
+    <legend></legend>
+
+    <table  class="table table-bordered">
+        <tr class="thead-dark" style="text-align:center">
+            <th>
+                      @Html.DisplayNameFor(model => model.TenNhom)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                   @Html.DisplayFor(model => model.TenNhom)
+            </th>
+        </tr>
+    </table>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="XÓA" class="btn btn-success" /> |
+        @Html.ActionLink("TRỞ VỀ ", "QuanLyNhom",null,  new { @class = "btn btn-danger" }) 
+    </p>
+}

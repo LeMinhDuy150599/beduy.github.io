@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+}
+
+<h2></h2>
+<form action="@Url.Action("XLDangNhap")" method="post">
+    <table style="width: 70%;" class="table">  
+        <tr>
+             <td>Tên đăng nhập</td>
+            <td> <input class="form-control"  name="txttendn" type="text"/></td>          
+        </tr>
+        <tr>
+             <td>Mật khẩu</td>
+            <td> <input class="form-control"  name="txtmatkhau" type="password" "/></td>          
+        </tr>      
+         <tr>
+            <td class="d-flex justify-content-center">
+                 <input class="form-control col-md-5 btn btn-danger"  id="btnDangKy" type="submit" value="Đăng nhập" />   
+            </td>       
+             
+        </tr>
+    </table>
+    
+</form>

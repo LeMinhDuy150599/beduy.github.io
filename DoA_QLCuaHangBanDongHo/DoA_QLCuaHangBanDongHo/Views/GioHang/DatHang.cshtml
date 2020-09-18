@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "DatHang";
+}
+@using DoA_QLCuaHangBanDongHo.Models;
+@model KHACHHANG
+
+<h2></h2>
+ 
+<form action="@Url.Action("XLDatHang")" method="post">
+   
+    <table style="width: 70%;color:black;font-family:Bookman Old Style" class="table">  
+        <tr>
+             <td>Họ tên</td>
+             <td><p>@Model.HoTen</p></td>          
+        </tr>
+        <tr>
+             <td>Địa chỉ</td>
+            <td><p>@Model.DiaChi</p> </td>          
+        </tr> 
+        <tr>
+             <td>Điện thoại</td>
+            <td><p>@Model.DienThoai</p> </td>          
+        </tr>   
+         <tr>
+             <td>Ngày đặt</td>
+            <td> @DateTime.Now.ToShortDateString()</td>          
+        </tr>   
+        <tr>
+             <td>Ngày giao</td>
+            <td> <input name="txtng" type="date"/></td>          
+        </tr>   
+
+         <tr>
+            <td class="d-flex justify-content-center">
+                 <input class="form-control col-md-7 btn btn-danger"  type="submit" value="ĐỒNG Ý ĐẶT HÀNG" />   
+            </td>       
+        </tr>
+    </table>
+</form>

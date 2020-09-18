@@ -1,0 +1,53 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.LOAI
+
+@{
+    ViewBag.Title = "ThemMoiLoai";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+
+<h2 style="text-align:center">THÊM MỚI LOẠI</h2>
+
+@using (Html.BeginForm()) {
+   @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<fieldset>
+        <legend></legend>
+<table class="table table-bordered">
+    <tr>
+        <td>
+             TÊN LOẠI
+        </td>
+        <td>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TenLoai)
+                @Html.ValidationMessageFor(model => model.TenLoai)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+              TÊN NHÓM
+        </td>
+        <td>
+             <div class="editor-field">
+                 @Html.DropDownList("MaNhom")
+            </div>
+        </td>
+    </tr>
+</table>
+        <p>
+            <input type="submit" value="THÊM" class="btn btn-warning"/> |
+             @Html.ActionLink("TRỞ VỀ ", "QuanLyLoai",null,  new { @class = "btn btn-danger" }) 
+
+        </p>
+    </fieldset>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

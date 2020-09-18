@@ -1,0 +1,53 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Xoadongho";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+<h2>XÓA SẢN PHẨM</h2>
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này?</h3>
+<table style="text-align: center;border:hidden" class="table">
+            <tr>
+                <td style="text-align: right">Tên sản phẩm:</td>
+                <td style="text-align: left">@Html.DisplayFor(model => model.TenSP)</td>
+            </tr>
+            <tr>
+                 <td style="text-align: right">Giá bán:</td>
+                <td style="text-align: left">@String.Format("{0:0,0}",Model.GiaBan) VNĐ</td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Mô tả:</td>
+                <td style="text-align: left">@Html.DisplayFor(model => model.MoTa)</td>
+            </tr>
+            <tr>
+                 <td style="text-align: right">Ngày cập nhật:</td>
+                <td style="text-align: left">@String.Format("{0:dd/MM/yyyy}",Model.NgayCapNhat)</td>
+            </tr>
+            <tr>
+                 <td style="text-align: right">Ảnh bìa</td>
+                <td style="text-align: left"><img style="width:150px;height:150px" src="@Url.Content("~/Content/imgWEB/"+Model.AnhBia)" /></td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Số lượng tồn</td>
+                <td style="text-align: left">@Html.DisplayFor(model => model.SoLuongTon)</td>
+            </tr>
+            <tr>
+                 <td style="text-align: right">Mã loại:</td>
+                <td style="text-align: left">@Html.DisplayFor(model => model.LOAI.TenLoai)</td>
+            </tr>
+            <tr>
+                 <td style="text-align: right">Mã nhóm:</td>
+                <td style="text-align: left">@Html.DisplayFor(model => model.NHOM.TenNhom)</td>
+            </tr>
+            
+        </table>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div>
+        <input type="submit" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("QUAY LẠI", "DongHo")
+    </div>
+}

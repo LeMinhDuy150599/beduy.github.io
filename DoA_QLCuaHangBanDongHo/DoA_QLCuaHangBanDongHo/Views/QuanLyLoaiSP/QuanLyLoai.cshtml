@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "QuanLyLoai";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+@using DoA_QLCuaHangBanDongHo.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoA_QLCuaHangBanDongHo.Models.LOAI>
+<h2 style="text-align:center">QUẢN LÝ LOẠI</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "ThemMoiLoai","QuanLyLoaiSP")
+</p>
+<table class="table table-bordered">
+    <tr class="thead-dark" style="text-align:center">
+        <th>
+           TÊN LOẠI
+        </th>
+        <th>
+            TÊN NHÓM
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="table table-striped table-warning">
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHOM.TenNhom)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "ChinhSuaLoai", new { id=item.MaLoai } ,  new { @class = "btn btn-dark" }) |
+            @Html.ActionLink("Chi Tiết", "ChiTietLoai", new { id=item.MaLoai },  new { @class = "btn btn-danger" }) |
+            @Html.ActionLink("Xóa", "XoaLoai", new { id=item.MaLoai },  new { @class = "btn btn-dark" })
+        </td>
+    </tr>
+}
+
+</table>
+
+@* Tạo liên kết các trang *@
+Trang @(Model.PageCount <Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("QuanLyLoai", new {page=page }))
+</div>
+
+<style>
+    .MenuTrang li {
+        display:inline;
+    }
+</style>

@@ -1,0 +1,40 @@
+﻿@using DoA_QLCuaHangBanDongHo.Models;
+@model List<LOAI>
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">Trang chủ</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("DangNhap","KhachHang")">Đăng nhập<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("DangKy","KhachHang")">Đăng ký</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                            Thương hiệu
+                        </a>
+                        <div class="dropdown-content">
+                            @foreach(var n in Model)
+                            {
+                            <a class="dropdown-item" href="@Url.Action("HienThiLoai", new{maloai=@n.MaLoai})">@n.TenLoai</a>
+                            
+                            }
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("LichSu","Home")">Lịch sử đồng hồ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("DangNhap","Admin")">Quản lý</a>
+                    </li>
+                </ul>
+                <form action="@Url.Action("TimKiem","Home")" method="post" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Tìm</button>
+                </form>            
+                    @Html.Action("GioHangpartial","GioHang")
+            </div>
+        </div>
+    </nav>

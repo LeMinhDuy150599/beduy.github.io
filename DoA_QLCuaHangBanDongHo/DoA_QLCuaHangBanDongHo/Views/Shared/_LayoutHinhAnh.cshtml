@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/Content/dinhdang.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href="~/Content/DinhDanghinhanh.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+     @Html.Action("MenuNgang","Home")
+        
+   </div>
+    <div style="background-color:black">
+        @RenderBody()
+    </div>
+   
+
+    <div style="background-color:black">
+        <br />
+        <br />
+        <br />
+
+    </div>
+    <div>
+        <table class="table table-dark">
+            <thead>
+                 <tr>
+                    <th scope="col">
+                        <a style="font-family:Bookman Old Style">THE DoHo <br />
+                        92 Đường Sương Nguyệt Ánh, Phường Phạm Ngũ Lão<br /> Quận 1, TP. Hồ Chí Minh<br />
+                        Tel: (028) 7302 7777 - Hotline: 0933 888 515</a>
+                    </th>
+                    <th scope="col">
+                        <a style="font-family:Bookman Old Style">Chi nhánh 2 <br />
+                        222 Đường Trần Hưng Đạo, Phường Nguyễn Cư Trinh<br /> Quận 1, TP. Hồ Chí Minh<br />
+                         Tel: (028) 7308 6079 - Hotline: 0909 633 133</a>
+
+                    </th>
+                </tr>
+                </thead>
+        </table>
+      </div>
+   
+</body>
+</html>

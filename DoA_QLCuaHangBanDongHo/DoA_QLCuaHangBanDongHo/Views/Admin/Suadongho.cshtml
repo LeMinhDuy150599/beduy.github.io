@@ -1,0 +1,100 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Suadongho";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+<script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' })</script>
+
+<h2 style="text-align:center">CHỈNH SỬA SẢN PHẨM</h2> 
+@using (Html.BeginForm("Suadongho", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.MaSP)
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    TÊN SẢN PHẨM:
+                </td>
+                   <td>
+                        @Html.TextBox("tensp") 
+                   </td>
+            </tr>
+            <tr>
+                <td>
+                    GIÁ BÁN:
+                </td>
+                <td>
+                    @Html.TextBox("giaban") 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    MÔ TẢ:
+                </td>
+                <td class="editor-field">
+                     @Html.TextArea("mota") 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    NGÀY CẬP NHẬT:
+                </td>
+                <td>
+                    @DateTime.Now.ToShortDateString()
+             @*@Html.TextBox("ngaycapnhat")  *@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     ẢNH BÌA:
+                </td>
+                <td>
+                     <input name="fileupload"  type="file"/>
+                     <img src="@Url.Content("~/Content/imgWEB/"+ Model.AnhBia)" width="200px" height="250px" />(Anh Hien Tai)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                      SỐ LƯỢNG TỒN: 
+                </td>
+                <td>
+                    <input type="number" min="1" name="soluong" />
+                     @*  @Html.TextBox("soluong") *@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     TÊN LOẠI:
+                </td>
+                <td>
+                     @Html.DropDownList("MaLoai")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     TÊN NHÓM:
+                </td>
+                <td>
+                    @Html.DropDownList("MaNhom")
+                </td>
+            </tr>
+        </table>
+        <p class="d-flex justify-content-center">
+            <input class="btn btn-dark" type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("QUAY LẠI", "DongHo")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

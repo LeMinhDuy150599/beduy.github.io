@@ -1,0 +1,38 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.LOAI
+
+@{
+    ViewBag.Title = "ChiTietLoai";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+<h2 style="text-align:center">CHI TIẾT LOẠI</h2>
+
+<fieldset>
+    <legend></legend>
+<table  class="table table-bordered">
+    <tr class="thead-dark" style="text-align:center">
+        <th>
+                 TÊN LOẠI
+        </th>
+        <th>
+                 TÊN NHÓM
+        </th>
+    </tr>
+    <tr>
+        <th>
+                @Html.DisplayFor(model => model.TenLoai)
+        </th>
+        <th>
+                @Html.DisplayFor(model => model.NHOM.TenNhom)
+        </th>
+    </tr>
+</table>
+    
+   
+
+    
+   
+</fieldset>
+<p>
+    @Html.ActionLink("TRỞ VỀ ", "QuanLyLoai",null,  new { @class = "btn btn-danger" }) 
+</p>

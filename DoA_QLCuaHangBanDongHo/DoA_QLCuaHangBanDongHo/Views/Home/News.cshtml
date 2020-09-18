@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DoA_QLCuaHangBanDongHo.Models;
+@model User
+<h2></h2>
+<div style="background-color:brown">
+ <table style="color:white" >
+
+        <tr style=" font-size:25px; font-family:Cambria">
+            <td >Họ tên của bạn là: </td>
+            <td> @Model.HoTen</td>   
+        </tr >
+        <tr style="font-size:25px; font-family:Cambria ">
+            <td >Email của bạn là: </td>
+            <td>@Model.Email</td>
+        </tr>
+ </table>
+<h2 style="font-family:Cambria; text-align:center; font-weight:bold;color:white">Cám ơn bạn</h2>
+<p style="font-size:25px; font-family:Cambria;text-align:center;color:white">Chúng tôi sẽ gửi thông tin khuyến mãi giảm giá của THEDoHo Shop qua email này một cách sớm nhất!</p>
+</div>

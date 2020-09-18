@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Menu1";
+}
+@using DoA_QLCuaHangBanDongHo.Models;
+@model List<LOAI>
+<h2></h2>
+ <ul class="nav flex-column" style="font-family:Bookman Old Style; color:darkblue;background-color:#941813">
+    @foreach (var i in Model)
+    {
+         <li class="nav item border-bottom border-info"> <a href="@Url.Action("HienThiLoai","Home", new {maloai=@i.MaLoai })" class="nav-link" style="color:white"> @i.TenLoai</a> </li>
+    }
+</ul>

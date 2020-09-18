@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "ChiTietDongHo";
+}
+@using DoA_QLCuaHangBanDongHo.Models;
+@model SANPHAM
+<h2></h2>
+@if (Session["dn"] != null)
+{
+    <p>Chào bạn, @Session["dn"]</p> 
+}
+<div class="card mb-3" style="max-width: 100%">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+        <div class="inner">
+            <img src="~/Content/imgWEB/@Model.AnhBia" class="card-img" alt="Card image cap">
+        </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight:bold;font-family:Bookman Old Style; font-size:xx-large; color:darkblue">@Model.TenSP</h5>
+        <p class="card-text" style="font-family: Bookman Old Style; font-size:large; color:darkblue">@Model.MoTa</p>
+        <p class="card-text" style="font-family: Bookman Old Style; font-size:large; color:darkblue;font-style:italic">@String.Format("{0:0,0}" ,@Model.GiaBan) VND</p>
+        <form class="form-inline justify-content-start">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+                
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+            </span>
+                
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-youtube fa-stack-1x"></i>
+            </span>
+               
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-pinterest fa-stack-1x"></i>
+            </span>
+                
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x"></i>
+            </span>
+
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x"></i>
+           </span>
+        </form>
+          <a href="@Url.Action("ThemGioHang","GioHang", new {ms=@Model.MaSP })" class="btn btn-primary">Thêm vào giỏ</a>
+      </div>
+    </div>
+  </div>
+</div>

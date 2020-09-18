@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "DangKy";
+}
+
+<h2></h2>
+<form action="@Url.Action("XLDangKy")" method="post">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Họ tên khách hàng</label>
+      <input name="txthoten" type="text" class="form-control" placeholder="Họ tên" >
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault02">Tên đăng nhập</label>
+      <input name="txttendn" type="text" class="form-control" placeholder="Tên đăng nhập">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationDefaultUsername">Mật khẩu</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend2"></span>
+        </div>
+        <input name="txtmatkhau" type="password" class="form-control" id="validationDefaultUsername" placeholder="Mật khẩu">
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Địa chỉ</label>
+      <input name="txtdiachi" type="text" class="form-control" placeholder="Địa chỉ" >
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">Email</label>
+      <input name="txtemail" type="text" class="form-control" placeholder="abc@gmail.com">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault05">Số điện thoại</label>
+      <input name="txtdienthoai" type="text" class="form-control" placeholder="0932xxxxxx">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">Ngày sinh</label>
+      <input name="txtngaysinh" type="date" class="form-control">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault05">Giới tính</label>
+      <select id="Select1" class="form-control" name="txtgioitinh" >
+            <option>Nam</option>
+             <option>Nữ</option>
+        </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+      <label class="form-check-label" for="invalidCheck2">
+        Đồng ý với điều khoản của chúng tôi
+      </label>
+    </div>
+  </div>
+  <button id="btnDK" class="btn btn-primary" type="submit">Đăng ký</button>
+</form>

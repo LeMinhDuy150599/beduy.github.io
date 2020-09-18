@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "TimKiem";
+}
+@using DoA_QLCuaHangBanDongHo.Models;
+@model List<SANPHAM>
+<h2></h2>
+@if (Session["dn"] != null)
+{
+    <p>Chào bạn, @Session["dn"]</p> 
+}
+<div class="container">
+       <div class="product-group">
+
+           <div class="row" style="font-family:Bookman Old Style; color:darkblue">
+                @foreach(SANPHAM sp in Model)
+                 {
+                   <div class="col-md-4 col-sm-6 col-12">
+                     <div class="card card-product mb-3">
+                         <div class="inner"><a href="@Url.Action("ChiTietDongHo","Home", new { mh = @sp.MaSP })"><img class="card-img-top" src="~/Content/imgWEB/@sp.AnhBia" alt="Card image cap" /></a></div>
+                        
+                       <div class="card-body">
+                           <h5 class="card-title" style="font-weight:normal">@sp.TenSP</h5>
+                           <br />
+                           <h5 class="card-title" style="font-weight:bold">@String.Format("{0:0,0}" ,@sp.GiaBan) VND</h5>
+                           <a href="@Url.Action("ThemGioHang","GioHang", new {ms=@sp.MaSP })" class="btn btn-warning">Thêm vào giỏ</a>
+                       </div>
+                      
+                   </div>
+               </div>
+                 }     
+            </div>
+        </div>
+</div>

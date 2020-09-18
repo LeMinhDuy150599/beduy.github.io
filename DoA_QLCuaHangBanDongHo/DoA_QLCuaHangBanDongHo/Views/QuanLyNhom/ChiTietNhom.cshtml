@@ -1,0 +1,22 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.NHOM
+
+@{
+    ViewBag.Title = "ChiTietNhom";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+
+<fieldset>
+    <legend></legend>
+    <table class="table table-bordered">
+    <tr style="text-align:center">
+        <th>
+           TÊN NHÓM
+        </th>
+        <th>  @Html.DisplayFor(model => model.TenNhom)</th>
+    </tr>
+    
+   </table>
+</fieldset>
+<p>
+    @Html.ActionLink("TRỞ VỀ", "QuanLyNhom",null,  new { @class = "btn btn-dark" })
+</p>

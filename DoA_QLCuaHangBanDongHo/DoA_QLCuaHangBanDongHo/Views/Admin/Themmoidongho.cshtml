@@ -1,0 +1,87 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Themmoidongho";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>THÊM MỚI SẢN PHẨM </h2>
+
+@using (Html.BeginForm("Themmoidongho", "Admin", FormMethod.Post, new {@enctype="multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+   
+        <table style="text-align: center;border:hidden" class="table">
+            <tr>
+                <td style="text-align: right">Tên sản phẩm </td>
+                <td style="text-align: left">
+                    @Html.EditorFor(model => model.TenSP)
+                    @Html.ValidationMessageFor(model => model.TenSP)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Giá bán </td>
+                <td style="text-align: left">
+                    @Html.EditorFor(model => model.GiaBan)
+                    @Html.ValidationMessageFor(model => model.GiaBan)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Mô tả  </td>
+                <td style="text-align: left" class="editor-field">
+                    <textarea name="MoTa">Mô tả thông tin...</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Ngày cập nhật </td>
+                <td style="text-align: left">
+                    <input type="date" name="NgayCapNhat" />
+                    @Html.ValidationMessageFor(model => model.NgayCapNhat)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Ảnh bìa</td>
+                <td style="text-align: left">
+                    <input type="file" name="fileUpload" />
+                    @ViewBag.Thongbao
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Số lượng tồn </td>
+                <td style="text-align: left">
+                    @Html.EditorFor(model => model.SoLuongTon)
+                    @Html.ValidationMessageFor(model => model.SoLuongTon)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Mã loại </td>
+                <td style="text-align: left">
+                    @Html.DropDownList("MaLoai")
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">Mã nhóm</td>
+                <td style="text-align: left">
+                    @Html.DropDownList("MaNhom")
+                    
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: left">
+                    <input type="submit" value="THÊM MỚI" class="btn btn-info" />
+                </td>
+            </tr>
+        </table>
+
+
+}
+
+<div>
+    @Html.ActionLink("QUAY LẠI TRANG QUẢN LÝ SÁCH", "DongHo","Admin")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
